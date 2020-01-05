@@ -12,3 +12,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # add the executable
 add_executable(mc_integration src/mc_integration.cpp)
+
+if(MSVC)
+    target_compile_options(mc_integration PRIVATE /W4 /WX)
+else()
+    target_compile_options(mc_integration PRIVATE -Wall -Wextra -pedantic -Werror)
+endif()

@@ -19,7 +19,7 @@ struct Call_N {
 
 template<typename GenR, typename F, typename... Args>
 struct Call_N<0, GenR, F, Args...> {
-    static typename F::result_type call(std::function<GenR(int)> generator, F fn, Args... args) {
+    static typename F::result_type call(std::function<GenR(int)>, F fn, Args... args) {
         return fn(args...);
     }
 };
@@ -32,7 +32,7 @@ double mc_integration(std::function<double(Args...)> fn, std::array<std::pair<do
 
     double prob_density = 0;
     bool first_iter = true;
-    for(int i = 0; i < sizeof...(Args); i++) {
+    for(size_t i = 0; i < sizeof...(Args); i++) {
         distributions[i] = std::uniform_real_distribution<double>(ranges[i].first, ranges[i].second);
         if(first_iter) {
             prob_density = 1.0 / (ranges[i].second - ranges[i].first);

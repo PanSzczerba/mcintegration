@@ -8,7 +8,7 @@ double fn(double x) {
 }
 
 int main() {
-    constexpr double a = 0;
+    constexpr double a = 1;
     constexpr double b = 3;
     constexpr size_t iters = 100000;
 
