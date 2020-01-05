@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
-include(cmake/HermitCore-Application.cmake)
+if(NOT NO_HERMIT_CORE)
+    include(cmake/HermitCore-Application.cmake)
+endif()
 
 # set the project name
 project("Monte Carlo Integration")
