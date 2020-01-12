@@ -1,3 +1,4 @@
+#pragma once
 #include <array>
 #include <iostream>
 #include <future>
@@ -110,7 +111,7 @@ size_t estimate_min_var_split(std::function<double(Args...)> fn, std::array<std:
         a = ranges[i].first;
         b = ranges[i].second;
         span = b - a;
-        double variance;
+        double variance = 0;
 #pragma omp parallel for firstprivate(ranges_copy) reduction(+:variance)
         for(int j = 0; j < thread_num; j++) {
             ranges_copy[i] = std::pair<double, double>(a + (j * span) / thread_num,
