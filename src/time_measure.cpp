@@ -39,6 +39,6 @@ int main(int argc, char** argv) {
                 {pair<double, double>(a,b), pair<double, double>(0.0,1.0)}, iters) << endl;
     chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
 
-    cout << "Elapsed time = " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << "ms" << endl;
+    cout << "Elapsed time = " << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "ms" << endl;
 
 }
