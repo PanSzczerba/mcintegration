@@ -36,11 +36,10 @@ int main(int argc, char** argv) {
     constexpr double c = 0;
     constexpr double d = 1;
     chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
-    cout<<"MC integration for 3x + y in (" << a << "," << b << ") * (" << c << "," << d << ") = " <<
-        mc_integration_mth(function<double(double, double)>(fn),
-                {pair<double, double>(a,b), pair<double, double>(c,d)}, iters) << endl;
+    mc_integration_mth(function<double(double, double)>(fn),
+                {pair<double, double>(a,b), pair<double, double>(c,d)}, iters);
     chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
 
-    cout << "Elapsed time = " << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "ms" << endl;
+    cout << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << endl;
 
 }
